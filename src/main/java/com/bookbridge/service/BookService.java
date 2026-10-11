@@ -23,6 +23,9 @@ import com.bookbridge.repository.CategoryRepository;
 import com.bookbridge.util.FileStorageService;
 
 @Service
+/**
+ * Business logic for book listings: browsing, lookup, and managing the book catalog.
+ */
 public class BookService {
     
     @Autowired

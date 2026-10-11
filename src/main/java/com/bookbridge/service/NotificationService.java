@@ -15,6 +15,9 @@ import com.bookbridge.model.User;
 import com.bookbridge.repository.NotificationRepository;
 
 @Service
+/**
+ * Business logic for user notifications, including unread tracking.
+ */
 public class NotificationService {
     
     @Autowired

@@ -21,6 +21,9 @@ import com.bookbridge.model.User;
 import com.bookbridge.repository.TransactionRepository;
 
 @Service
+/**
+ * Business logic for book buy/sell/exchange transactions.
+ */
 public class TransactionService {
     
     @Autowired

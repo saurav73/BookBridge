@@ -21,6 +21,9 @@ import com.bookbridge.repository.ChatRepository;
 import com.bookbridge.repository.MessageRepository;
 
 @Service
+/**
+ * Business logic for individual chat messages within conversations.
+ */
 public class MessageService {
     
     @Autowired

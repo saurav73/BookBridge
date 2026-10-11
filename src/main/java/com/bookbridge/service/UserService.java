@@ -20,6 +20,9 @@ import com.bookbridge.util.FileStorageService;
 import com.bookbridge.util.PasswordEncoder;
 
 @Service
+/**
+ * Business logic for user registration, authentication, and session handling.
+ */
 public class UserService {
     
     private static final String USER_SESSION_KEY = "currentUser";

@@ -14,6 +14,9 @@ import com.bookbridge.model.User;
 import com.bookbridge.repository.ChatRepository;
 
 @Service
+/**
+ * Business logic for real-time buyer-seller chat conversations.
+ */
 public class ChatService {
     
     @Autowired

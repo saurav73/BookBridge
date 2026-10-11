@@ -12,6 +12,9 @@ import com.bookbridge.model.Category;
 import com.bookbridge.repository.CategoryRepository;
 
 @Service
+/**
+ * Business logic for book categories used to organize listings.
+ */
 public class CategoryService {
     
     @Autowired
