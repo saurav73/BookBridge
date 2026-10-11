@@ -1,0 +1,43 @@
+# BookBridge
+
+**Book exchange platform for students** — a Spring Boot backend for buying, selling, and exchanging second-hand books, with real-time chat between buyers and sellers.
+
+## Features
+
+- **Books & categories** — list books, browse by category (`BookController`, `CategoryController`)
+- **Auth & users** — registration/login, user profiles, admin panel (`AuthController`, `UserController`, `AdminController`)
+- **Real-time chat** — WebSocket-based messaging between users (`ChatController`, `MessageController`, `WebSocketConfig`)
+- **Transactions** — buy/sell/exchange flows (`TransactionController`)
+- **Notifications** — in-app notifications (`NotificationController`)
+- **File uploads** — book photos stored under `uploads/` (git-ignored; configure via `file.upload-dir`)
+
+## Tech
+
+Java 11, Spring Boot, Spring Security (session-based, see `SessionConfig`), WebSocket, JPA/Hibernate, MySQL, Maven.
+
+## Setup
+
+```bash
+./mvnw spring-boot:run
+```
+
+Configure in `src/main/resources/application.properties` first:
+
+| Key | Purpose |
+|---|---|
+| `server.port` | HTTP port |
+| `spring.datasource.url` / `username` / `password` | MySQL connection |
+| `spring.jpa.hibernate.ddl-auto` | Schema handling |
+| `file.upload-dir` | Where uploaded photos are stored (`uploads/`, not committed) |
+| `server.servlet.session.timeout` | Session timeout |
+| `spring.session.store-type` | Session storage backend |
+
+## Project structure
+
+| Path | What it is |
+|---|---|
+| `src/main/java/com/bookbridge/controller/` | REST + WebSocket controllers |
+| `src/main/java/com/bookbridge/config/` | Session, web, and WebSocket config |
+| `src/main/java/com/bookbridge/exception/` | Domain exceptions |
+| `src/main/resources/application.properties` | All configuration |
+| `CHANGELOG.md` | Dated build history |
