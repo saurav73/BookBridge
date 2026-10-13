@@ -18,6 +18,9 @@ import org.springframework.web.multipart.MultipartFile;
 import com.bookbridge.model.User;
 import com.bookbridge.service.UserService;
 
+/**
+ * Session-based auth endpoints (register, login, logout) under /api/auth.
+ */
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {

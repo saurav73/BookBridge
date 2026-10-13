@@ -23,6 +23,9 @@ import com.bookbridge.model.Category;
 import com.bookbridge.service.CategoryService;
 import com.bookbridge.service.UserService;
 
+/**
+ * Book category CRUD endpoints under /api/categories.
+ */
 @RestController
 @RequestMapping("/api/categories")
 public class CategoryController {

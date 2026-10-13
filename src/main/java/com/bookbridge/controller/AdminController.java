@@ -21,6 +21,9 @@ import com.bookbridge.repository.TransactionRepository;
 import com.bookbridge.repository.UserRepository;
 import com.bookbridge.service.UserService;
 
+/**
+ * Admin panel endpoints (user/book moderation) under /api/admin.
+ */
 @RestController
 @RequestMapping("/api/admin")
 public class AdminController {

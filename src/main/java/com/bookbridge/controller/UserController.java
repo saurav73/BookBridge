@@ -23,6 +23,9 @@ import com.bookbridge.model.User;
 import com.bookbridge.model.UserRole;
 import com.bookbridge.service.UserService;
 
+/**
+ * User profile endpoints (view/update profile) under /api/users.
+ */
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
