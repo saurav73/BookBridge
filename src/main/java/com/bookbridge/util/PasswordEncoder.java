@@ -7,6 +7,9 @@ import java.util.Base64;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * BCrypt password hashing wrapper used by the auth flow.
+ */
 @Component
 public class PasswordEncoder {
     

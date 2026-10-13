@@ -9,6 +9,9 @@ import org.springframework.session.web.http.DefaultCookieSerializer;
 
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * HTTP session configuration (store-type, timeout) for session-based auth.
+ */
 @Configuration
 @EnableSpringHttpSession
 public class SessionConfig {

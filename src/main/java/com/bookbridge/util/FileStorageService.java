@@ -14,6 +14,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.bookbridge.exception.FileStorageException;
 
+/**
+ * Stores uploaded book photos under the configured upload dir and resolves/deletes them.
+ */
 @Service
 public class FileStorageService {
     
