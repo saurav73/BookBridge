@@ -1,5 +1,8 @@
 # BookBridge Changelog
 
+## 2026-10-13
+- Added class-level Javadoc to all 9 controllers, both configs (session, WebSocket), and the storage/encoder utils
+
 ## 2026-10-11
 - Removed a committed user ID-card photo from git tracking; `uploads/` is now git-ignored (user uploads don't belong in the repo)
 - Made `mvnw` executable
