@@ -27,6 +27,9 @@ import com.bookbridge.service.BookService;
 import com.bookbridge.service.ChatService;
 import com.bookbridge.service.UserService;
 
+/**
+ * Chat conversation endpoints (start/list chats) under /api/chats.
+ */
 @RestController
 @RequestMapping("/api/chats")
 public class ChatController {

@@ -31,6 +31,9 @@ import com.bookbridge.service.ChatService;
 import com.bookbridge.service.MessageService;
 import com.bookbridge.service.UserService;
 
+/**
+ * Message REST endpoints under /api/messages plus the STOMP @MessageMapping for live chat.
+ */
 @RestController
 @RequestMapping("/api/messages")
 public class MessageController {

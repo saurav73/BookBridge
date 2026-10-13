@@ -29,6 +29,9 @@ import com.bookbridge.service.BookService;
 import com.bookbridge.service.TransactionService;
 import com.bookbridge.service.UserService;
 
+/**
+ * Buy / sell / exchange transaction flow endpoints under /api/transactions.
+ */
 @RestController
 @RequestMapping("/api/transactions")
 public class TransactionController {

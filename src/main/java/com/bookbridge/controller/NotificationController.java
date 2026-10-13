@@ -22,6 +22,9 @@ import com.bookbridge.model.User;
 import com.bookbridge.service.NotificationService;
 import com.bookbridge.service.UserService;
 
+/**
+ * In-app notification endpoints under /api/notifications.
+ */
 @RestController
 @RequestMapping("/api/notifications")
 public class NotificationController {

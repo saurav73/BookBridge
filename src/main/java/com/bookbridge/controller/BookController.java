@@ -35,6 +35,9 @@ import com.bookbridge.service.BookService;
 import com.bookbridge.service.CategoryService;
 import com.bookbridge.service.UserService;
 
+/**
+ * Book listing CRUD and search endpoints under /api/books.
+ */
 @RestController
 @RequestMapping("/api/books")
 public class BookController {
