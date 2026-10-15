@@ -1,5 +1,8 @@
 # BookBridge Changelog
 
+## 2026-10-15
+- Added class-level Javadoc to all model classes and enums (16), repository interfaces (7), exception classes (4), WebConfig, and the application entry point
+
 ## 2026-10-13
 - Added class-level Javadoc to all 9 controllers, both configs (session, WebSocket), and the storage/encoder utils
 
