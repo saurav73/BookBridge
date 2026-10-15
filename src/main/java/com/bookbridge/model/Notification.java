@@ -14,6 +14,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * JPA entity representing a notification delivered to a user.
+ */
 @Entity
 @Table(name = "notifications")
 public class Notification {

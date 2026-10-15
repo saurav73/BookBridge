@@ -15,6 +15,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * JPA entity representing a conversation between two users.
+ */
 @Entity
 @Table(name = "chats")
 public class Chat {

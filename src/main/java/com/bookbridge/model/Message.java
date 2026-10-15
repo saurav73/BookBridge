@@ -14,6 +14,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * JPA entity representing a single chat message.
+ */
 @Entity
 @Table(name = "messages")
 public class Message {

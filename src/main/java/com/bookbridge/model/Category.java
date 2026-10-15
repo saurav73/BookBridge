@@ -12,6 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * JPA entity representing a book category.
+ */
 @Entity
 @Table(name = "categories")
 public class Category {

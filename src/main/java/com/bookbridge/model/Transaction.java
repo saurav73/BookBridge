@@ -14,6 +14,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * JPA entity representing a book exchange or sale transaction.
+ */
 @Entity
 @Table(name = "transactions")
 public class Transaction {

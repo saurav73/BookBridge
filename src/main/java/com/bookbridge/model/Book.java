@@ -18,6 +18,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * JPA entity representing a listed book in the marketplace.
+ */
 @Entity
 @Table(name = "books")
 public class Book {

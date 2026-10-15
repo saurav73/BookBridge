@@ -15,6 +15,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * JPA entity representing an application user.
+ */
 @Entity
 @Table(name = "users")
 public class User {
