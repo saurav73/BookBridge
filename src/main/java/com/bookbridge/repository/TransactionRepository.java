@@ -11,6 +11,9 @@ import com.bookbridge.model.TransactionStatus;
 import com.bookbridge.model.TransactionType;
 import com.bookbridge.model.User;
 
+/**
+ * Spring Data JPA repository for Transaction persistence and queries.
+ */
 @Repository
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
     

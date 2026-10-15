@@ -12,6 +12,9 @@ import com.bookbridge.model.Book;
 import com.bookbridge.model.Chat;
 import com.bookbridge.model.User;
 
+/**
+ * Spring Data JPA repository for Chat persistence and queries.
+ */
 @Repository
 public interface ChatRepository extends JpaRepository<Chat, Long> {
     

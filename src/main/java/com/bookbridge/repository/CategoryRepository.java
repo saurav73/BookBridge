@@ -7,6 +7,9 @@ import org.springframework.stereotype.Repository;
 
 import com.bookbridge.model.Category;
 
+/**
+ * Spring Data JPA repository for Category persistence and queries.
+ */
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long> {
     

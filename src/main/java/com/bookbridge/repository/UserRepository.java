@@ -7,6 +7,9 @@ import org.springframework.stereotype.Repository;
 
 import com.bookbridge.model.User;
 
+/**
+ * Spring Data JPA repository for User persistence and queries.
+ */
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     

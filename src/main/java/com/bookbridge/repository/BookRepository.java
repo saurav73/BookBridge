@@ -16,6 +16,9 @@ import com.bookbridge.model.Category;
 import com.bookbridge.model.ListingType;
 import com.bookbridge.model.User;
 
+/**
+ * Spring Data JPA repository for Book persistence and queries.
+ */
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
     

@@ -11,6 +11,9 @@ import com.bookbridge.model.Chat;
 import com.bookbridge.model.Message;
 import com.bookbridge.model.User;
 
+/**
+ * Spring Data JPA repository for Message persistence and queries.
+ */
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Long> {
     

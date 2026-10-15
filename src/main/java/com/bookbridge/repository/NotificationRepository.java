@@ -9,6 +9,9 @@ import com.bookbridge.model.Notification;
 import com.bookbridge.model.NotificationType;
 import com.bookbridge.model.User;
 
+/**
+ * Spring Data JPA repository for Notification persistence and queries.
+ */
 @Repository
 public interface NotificationRepository extends JpaRepository<Notification, Long> {
     
