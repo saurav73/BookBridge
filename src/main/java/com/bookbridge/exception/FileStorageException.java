@@ -1,5 +1,8 @@
 package com.bookbridge.exception;
 
+/**
+ * Thrown when an uploaded file cannot be stored on disk.
+ */
 public class FileStorageException extends RuntimeException {
     
     private static final long serialVersionUID = 1L;
