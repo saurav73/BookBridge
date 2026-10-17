@@ -36,6 +36,16 @@ public class UserService {
     @Autowired
     private FileStorageService fileStorageService;
     
+    /**
+     * Registers a new user: checks uniqueness, hashes the password, stores optional
+     * ID and PAN documents, and assigns the default USER role.
+     *
+     * @param user the user to register
+     * @param idCardImage optional ID card image, may be null or empty
+     * @param panDocumentImage optional PAN document image, may be null or empty
+     * @return the saved user
+     * @throws UserAlreadyExistsException if the username or email is taken
+     */
     @Transactional
     public User registerUser(User user, MultipartFile idCardImage, MultipartFile panDocumentImage) {
         if (userRepository.existsByUsername(user.getUsername())) {
@@ -70,6 +80,15 @@ public class UserService {
         return userRepository.save(user);
     }
     
+    /**
+     * Authenticates a user by credentials, updates last login, and stores the user
+     * id in the session on success.
+     *
+     * @param username the login username
+     * @param password the raw password to verify
+     * @param session the HTTP session to populate on success
+     * @return the authenticated user, or null when credentials are invalid
+     */
     public User authenticateUser(String username, String password, HttpSession session) {
         Optional<User> userOpt = userRepository.findByUsername(username);
         
@@ -91,11 +110,22 @@ public class UserService {
         return null;
     }
     
+    /**
+     * Clears the current user from the session and invalidates it.
+     *
+     * @param session the HTTP session to invalidate
+     */
     public void logout(HttpSession session) {
         session.removeAttribute(USER_SESSION_KEY);
         session.invalidate();
     }
     
+    /**
+     * Resolves the logged-in user from the session.
+     *
+     * @param session the HTTP session holding the user id
+     * @return the current user, or null when nobody is logged in
+     */
     public User getCurrentUser(HttpSession session) {
         Long userId = (Long) session.getAttribute(USER_SESSION_KEY);
         
@@ -107,29 +137,71 @@ public class UserService {
         return null;
     }
     
+    /**
+     * Reports whether the session holds a logged-in user.
+     *
+     * @param session the HTTP session to check
+     * @return true when a user is logged in
+     */
     public boolean isAuthenticated(HttpSession session) {
         return session.getAttribute(USER_SESSION_KEY) != null;
     }
     
+    /**
+     * Reports whether the session's logged-in user has the ADMIN role.
+     *
+     * @param session the HTTP session to check
+     * @return true when the current user is an admin
+     */
     public boolean isAdmin(HttpSession session) {
         User currentUser = getCurrentUser(session);
         return currentUser != null && UserRole.ADMIN.equals(currentUser.getRole());
     }
     
+    /**
+     * Finds a user by id, throwing when it does not exist.
+     *
+     * @param id the user id
+     * @return the matching user
+     * @throws ResourceNotFoundException if no user has the given id
+     */
     public User getUserById(Long id) {
         return userRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
     }
     
+    /**
+     * Finds a user by username, throwing when it does not exist.
+     *
+     * @param username the username
+     * @return the matching user
+     * @throws ResourceNotFoundException if no user has the given username
+     */
     public User getUserByUsername(String username) {
         return userRepository.findByUsername(username)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found with username: " + username));
     }
     
+    /**
+     * Returns every registered user.
+     *
+     * @return all users
+     */
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
     
+    /**
+     * Updates a user's profile fields, password, and documents, replacing stored
+     * images only when new files are provided.
+     *
+     * @param id the user id
+     * @param userDetails the new field values
+     * @param idCardImage optional replacement ID card image, may be null or empty
+     * @param panDocumentImage optional replacement PAN document image, may be null or empty
+     * @return the updated user
+     * @throws UserAlreadyExistsException if a changed username or email is taken
+     */
     @Transactional
     public User updateUser(Long id, User userDetails, MultipartFile idCardImage, MultipartFile panDocumentImage) {
         User user = getUserById(id);
@@ -182,6 +254,11 @@ public class UserService {
         return userRepository.save(user);
     }
     
+    /**
+     * Deletes a user along with any stored ID and PAN document images.
+     *
+     * @param id the user id
+     */
     @Transactional
     public void deleteUser(Long id) {
         User user = getUserById(id);
@@ -198,6 +275,13 @@ public class UserService {
         userRepository.delete(user);
     }
     
+    /**
+     * Assigns a role to a user.
+     *
+     * @param id the user id
+     * @param role the role to assign
+     * @return the updated user
+     */
     @Transactional
     public User setUserRole(Long id, UserRole role) {
         User user = getUserById(id);

@@ -35,43 +35,105 @@ public class TransactionService {
     @Autowired
     private NotificationService notificationService;
     
+    /**
+     * Returns every transaction in the system.
+     *
+     * @return all transactions
+     */
     public List<Transaction> getAllTransactions() {
         return transactionRepository.findAll();
     }
     
+    /**
+     * Finds a transaction by id, throwing when it does not exist.
+     *
+     * @param id the transaction id
+     * @return the matching transaction
+     * @throws ResourceNotFoundException if no transaction has the given id
+     */
     public Transaction getTransactionById(Long id) {
         return transactionRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Transaction not found with id: " + id));
     }
     
+    /**
+     * Returns all transactions where the given user is the seller.
+     *
+     * @param seller the seller
+     * @return the seller's transactions
+     */
     public List<Transaction> getTransactionsBySeller(User seller) {
         return transactionRepository.findBySeller(seller);
     }
     
+    /**
+     * Returns all transactions where the given user is the buyer.
+     *
+     * @param buyer the buyer
+     * @return the buyer's transactions
+     */
     public List<Transaction> getTransactionsByBuyer(User buyer) {
         return transactionRepository.findByBuyer(buyer);
     }
     
+    /**
+     * Returns all transactions involving the given book.
+     *
+     * @param book the book
+     * @return the book's transactions
+     */
     public List<Transaction> getTransactionsByBook(Book book) {
         return transactionRepository.findByBook(book);
     }
     
+    /**
+     * Returns all transactions in the given status.
+     *
+     * @param status the transaction status
+     * @return matching transactions
+     */
     public List<Transaction> getTransactionsByStatus(TransactionStatus status) {
         return transactionRepository.findByStatus(status);
     }
     
+    /**
+     * Returns all transactions of the given type (sale, exchange, or donation).
+     *
+     * @param type the transaction type
+     * @return matching transactions
+     */
     public List<Transaction> getTransactionsByType(TransactionType type) {
         return transactionRepository.findByType(type);
     }
     
+    /**
+     * Returns the transactions of a seller that are in the given status.
+     *
+     * @param seller the seller
+     * @param status the transaction status
+     * @return matching transactions
+     */
     public List<Transaction> getTransactionsBySellerAndStatus(User seller, TransactionStatus status) {
         return transactionRepository.findBySellerAndStatus(seller, status);
     }
     
+    /**
+     * Returns the transactions of a buyer that are in the given status.
+     *
+     * @param buyer the buyer
+     * @param status the transaction status
+     * @return matching transactions
+     */
     public List<Transaction> getTransactionsByBuyerAndStatus(User buyer, TransactionStatus status) {
         return transactionRepository.findByBuyerAndStatus(buyer, status);
     }
     
+    /**
+     * Creates a pending transaction, marks the book as pending, and notifies the seller.
+     *
+     * @param transaction the transaction to create
+     * @return the saved transaction
+     */
     @Transactional
     public Transaction createTransaction(Transaction transaction) {
         transaction.setCreatedAt(LocalDateTime.now());
@@ -108,6 +170,17 @@ public class TransactionService {
         return savedTransaction;
     }
     
+    /**
+     * Updates a transaction's status as its seller, validating the transition and
+     * syncing the book status, then notifies the buyer.
+     *
+     * @param id the transaction id
+     * @param status the new status
+     * @param currentUser the user requesting the change; must be the seller
+     * @return the updated transaction
+     * @throws IllegalArgumentException if any argument is null
+     * @throws IllegalStateException if the user is not the seller or the transition is invalid
+     */
     @Transactional
     public Transaction updateTransactionStatus(Long id, TransactionStatus status, User currentUser) {
         // Validate inputs
@@ -205,6 +278,14 @@ public class TransactionService {
         return false; // Default to false for invalid transitions
     }
     
+    /**
+     * Deletes a transaction when the requester is its seller or buyer, restoring
+     * the book to AVAILABLE if the transaction was still pending.
+     *
+     * @param id the transaction id
+     * @param currentUser the user requesting the deletion
+     * @throws IllegalStateException if the user is neither seller nor buyer
+     */
     @Transactional
     public void deleteTransaction(Long id, User currentUser) {
         Transaction transaction = getTransactionById(id);
