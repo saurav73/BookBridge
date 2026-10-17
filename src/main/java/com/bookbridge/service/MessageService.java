@@ -38,15 +38,38 @@ public class MessageService {
     @Autowired
     private SimpMessagingTemplate messagingTemplate;
     
+    /**
+     * Returns all messages in a chat, oldest first.
+     *
+     * @param chat the chat whose messages to list
+     * @return the chat's messages ordered by sent time ascending
+     */
     public List<Message> getMessagesByChat(Chat chat) {
         return messageRepository.findByChatOrderBySentAtAsc(chat);
     }
     
+    /**
+     * Finds a message by id, throwing when it does not exist.
+     *
+     * @param id the message id
+     * @return the matching message
+     * @throws ResourceNotFoundException if no message has the given id
+     */
     public Message getMessageById(Long id) {
         return messageRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Message not found with id: " + id));
     }
     
+    /**
+     * Sends a message, reusing the existing chat between the users (and book) or
+     * creating one, then notifies the receiver by notification and WebSocket.
+     *
+     * @param sender the user sending the message
+     * @param receiver the user receiving the message
+     * @param content the message text
+     * @param relatedBook the book the conversation relates to, or null
+     * @return the saved message
+     */
     @Transactional
     public Message sendMessage(User sender, User receiver, String content, Book relatedBook) {
         // Find or create chat
@@ -111,6 +134,14 @@ public class MessageService {
         return message;
     }
     
+    /**
+     * Marks a single message as read, allowed only for its receiver.
+     *
+     * @param id the message id
+     * @param currentUser the user requesting the change
+     * @return the updated message, or unchanged if already read
+     * @throws IllegalStateException if the user is not the message receiver
+     */
     @Transactional
     public Message markMessageAsRead(Long id, User currentUser) {
         Message message = getMessageById(id);
@@ -129,6 +160,12 @@ public class MessageService {
         return message;
     }
     
+    /**
+     * Marks every unread message received by the current user in a chat as read.
+     *
+     * @param chat the chat to sweep
+     * @param currentUser the user whose received messages become read
+     */
     @Transactional
     public void markAllMessagesAsRead(Chat chat, User currentUser) {
         List<Message> messages = messageRepository.findByChatOrderBySentAtAsc(chat);
@@ -142,10 +179,23 @@ public class MessageService {
         }
     }
     
+    /**
+     * Counts the messages the given user received but has not read.
+     *
+     * @param user the user to count for
+     * @return the number of unread received messages
+     */
     public long countUnreadMessages(User user) {
         return messageRepository.countUnreadMessages(user);
     }
     
+    /**
+     * Deletes a message, allowed only for its sender.
+     *
+     * @param id the message id
+     * @param currentUser the user requesting the deletion
+     * @throws IllegalStateException if the user is not the message sender
+     */
     @Transactional
     public void deleteMessage(Long id, User currentUser) {
         Message message = getMessageById(id);
