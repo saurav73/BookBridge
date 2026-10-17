@@ -22,6 +22,12 @@ public class FileStorageService {
     
     private final Path fileStorageLocation;
     
+    /**
+     * Initializes the storage root under the configured upload directory, creating
+     * it when it does not exist.
+     *
+     * @param uploadDir the upload directory, defaults to "uploads"
+     */
     public FileStorageService(@Value("${file.upload-dir:uploads}") String uploadDir) {
         this.fileStorageLocation = Paths.get(uploadDir)
                 .toAbsolutePath()
@@ -34,6 +40,15 @@ public class FileStorageService {
         }
     }
     
+    /**
+     * Stores an uploaded file under the given subdirectory with a generated unique
+     * name.
+     *
+     * @param file the uploaded file
+     * @param subDirectory the subdirectory under the upload root
+     * @return the stored file's path relative to the upload root
+     * @throws FileStorageException if the file cannot be stored
+     */
     public String storeFile(MultipartFile file, String subDirectory) {
         try {
             // Create subdirectory if it doesn't exist
@@ -65,6 +80,12 @@ public class FileStorageService {
         }
     }
     
+    /**
+     * Deletes the stored file at the given relative path, if it exists.
+     *
+     * @param filePath the file's path relative to the upload root
+     * @throws FileStorageException if the file cannot be deleted
+     */
     public void deleteFile(String filePath) {
         try {
             Path targetLocation = this.fileStorageLocation.resolve(filePath);
@@ -74,6 +95,12 @@ public class FileStorageService {
         }
     }
     
+    /**
+     * Resolves the absolute path of the stored file at the given relative path.
+     *
+     * @param filePath the file's path relative to the upload root
+     * @return the absolute path of the stored file
+     */
     public Path getFilePath(String filePath) {
         return this.fileStorageLocation.resolve(filePath);
     }

@@ -16,6 +16,12 @@ public class PasswordEncoder {
     private static final int SALT_LENGTH = 16;
     private static final String ALGORITHM = "SHA-256";
     
+    /**
+     * Hashes a raw password with a random salt and returns the combined result.
+     *
+     * @param password the raw password
+     * @return the Base64-encoded salted hash
+     */
     public String encode(String password) {
         try {
             // Generate a random salt
@@ -40,6 +46,13 @@ public class PasswordEncoder {
         }
     }
     
+    /**
+     * Verifies a raw password against the stored salted hash.
+     *
+     * @param rawPassword the raw password to check
+     * @param encodedPassword the stored Base64-encoded hash
+     * @return true when the password matches
+     */
     public boolean matches(String rawPassword, String encodedPassword) {
         try {
             // Decode the stored password

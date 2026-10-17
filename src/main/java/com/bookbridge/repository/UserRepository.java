@@ -13,11 +13,23 @@ import com.bookbridge.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     
+    /**
+     * Finds a user by username.
+     */
     Optional<User> findByUsername(String username);
     
+    /**
+     * Finds a user by email.
+     */
     Optional<User> findByEmail(String email);
     
+    /**
+     * Reports whether the given username is already taken.
+     */
     boolean existsByUsername(String username);
     
+    /**
+     * Reports whether the given email is already registered.
+     */
     boolean existsByEmail(String email);
 }

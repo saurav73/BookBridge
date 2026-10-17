@@ -13,7 +13,13 @@ import com.bookbridge.model.Category;
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long> {
     
+    /**
+     * Finds a category by name.
+     */
     Optional<Category> findByName(String name);
     
+    /**
+     * Reports whether a category with the given name exists.
+     */
     boolean existsByName(String name);
 }
