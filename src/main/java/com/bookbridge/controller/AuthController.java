@@ -28,6 +28,9 @@ public class AuthController {
     @Autowired
     private UserService userService;
     
+    /**
+     * Registers a new user account with optional ID and PAN document uploads.
+     */
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(
             @RequestParam("username") String username,
@@ -61,6 +64,9 @@ public class AuthController {
         }
     }
     
+    /**
+     * Authenticates a user by username and password and starts a session.
+     */
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(
             @RequestParam("username") String username,
@@ -86,6 +92,9 @@ public class AuthController {
         }
     }
     
+    /**
+     * Ends the current session.
+     */
     @PostMapping("/logout")
     public ResponseEntity<?> logoutUser(HttpSession session) {
         userService.logout(session);
@@ -96,6 +105,9 @@ public class AuthController {
         return ResponseEntity.ok(response);
     }
     
+    /**
+     * Returns the currently logged-in user.
+     */
     @GetMapping("/current-user")
     public ResponseEntity<?> getCurrentUser(HttpSession session) {
         User currentUser = userService.getCurrentUser(session);

@@ -45,6 +45,9 @@ public class TransactionController {
     @Autowired
     private BookService bookService;
     
+    /**
+     * Lists all transactions; requires the ADMIN role.
+     */
     @GetMapping
     public ResponseEntity<?> getAllTransactions(HttpSession session) {
         if (!userService.isAdmin(session)) {
@@ -60,6 +63,9 @@ public class TransactionController {
         return ResponseEntity.ok(transactions);
     }
     
+    /**
+     * Returns a single transaction; participants and admins only.
+     */
     @GetMapping("/{id}")
     public ResponseEntity<?> getTransactionById(@PathVariable Long id, HttpSession session) {
         User currentUser = userService.getCurrentUser(session);
@@ -90,6 +96,9 @@ public class TransactionController {
         }
     }
     
+    /**
+     * Lists the logged-in user's sales transactions.
+     */
     @GetMapping("/my-sales")
     public ResponseEntity<?> getMySales(HttpSession session) {
         User currentUser = userService.getCurrentUser(session);
@@ -107,6 +116,9 @@ public class TransactionController {
         return ResponseEntity.ok(transactions);
     }
     
+    /**
+     * Lists the logged-in user's purchase transactions.
+     */
     @GetMapping("/my-purchases")
     public ResponseEntity<?> getMyPurchases(HttpSession session) {
         User currentUser = userService.getCurrentUser(session);
@@ -124,6 +136,9 @@ public class TransactionController {
         return ResponseEntity.ok(transactions);
     }
     
+    /**
+     * Creates a buy, exchange, or donation request for a book.
+     */
     @PostMapping
     public ResponseEntity<?> createTransaction(
             @RequestParam("bookId") Long bookId,
@@ -184,6 +199,9 @@ public class TransactionController {
         }
     }
     
+    /**
+     * Accepts, rejects, completes, or cancels a transaction; the seller only.
+     */
     @PutMapping("/{id}/status")
     public ResponseEntity<?> updateTransactionStatus(
             @PathVariable Long id,
@@ -209,6 +227,9 @@ public class TransactionController {
         }
     }
     
+    /**
+     * Deletes a transaction; the seller or buyer only.
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteTransaction(@PathVariable Long id, HttpSession session) {
         User currentUser = userService.getCurrentUser(session);

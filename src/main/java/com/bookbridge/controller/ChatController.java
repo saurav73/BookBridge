@@ -43,6 +43,9 @@ public class ChatController {
     @Autowired
     private BookService bookService;
     
+    /**
+     * Lists the logged-in user's chat conversations.
+     */
     @GetMapping
     public ResponseEntity<?> getMyChats(HttpSession session) {
         User currentUser = userService.getCurrentUser(session);
@@ -83,6 +86,9 @@ public class ChatController {
         return ResponseEntity.ok(chats);
     }
     
+    /**
+     * Returns a single chat; participants only.
+     */
     @GetMapping("/{id}")
     public ResponseEntity<?> getChatById(@PathVariable Long id, HttpSession session) {
         // Validate input
@@ -144,6 +150,9 @@ public class ChatController {
         }
     }
     
+    /**
+     * Finds the existing chat with another user (optionally about a book) or creates it.
+     */
     @PostMapping("/find-or-create")
     public ResponseEntity<?> findOrCreateChat(
             @RequestParam("userId") Long userId,
@@ -216,6 +225,9 @@ public class ChatController {
         }
     }
     
+    /**
+     * Deletes a chat; participants only.
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteChat(@PathVariable Long id, HttpSession session) {
         User currentUser = userService.getCurrentUser(session);

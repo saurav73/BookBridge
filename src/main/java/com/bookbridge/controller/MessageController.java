@@ -53,6 +53,9 @@ public class MessageController {
     @Autowired
     private SimpMessagingTemplate messagingTemplate;
     
+    /**
+     * Lists a chat's messages; participants only.
+     */
     @GetMapping("/chat/{chatId}")
     public ResponseEntity<?> getMessagesByChat(@PathVariable Long chatId, HttpSession session) {
         User currentUser = userService.getCurrentUser(session);
@@ -88,6 +91,9 @@ public class MessageController {
         }
     }
     
+    /**
+     * Sends a chat message over REST.
+     */
     @PostMapping("/send")
     public ResponseEntity<?> sendMessage(
             @RequestParam("receiverId") Long receiverId,
@@ -121,6 +127,9 @@ public class MessageController {
         }
     }
     
+    /**
+     * Handles an incoming STOMP chat message over WebSocket.
+     */
     @MessageMapping("/chat")
     public void processMessage(@Payload Map<String, Object> payload) {
         try {
@@ -151,6 +160,9 @@ public class MessageController {
         }
     }
     
+    /**
+     * Marks a message as read; the receiver only.
+     */
     @PutMapping("/{id}/read")
     public ResponseEntity<?> markMessageAsRead(@PathVariable Long id, HttpSession session) {
         User currentUser = userService.getCurrentUser(session);
@@ -172,6 +184,9 @@ public class MessageController {
         }
     }
     
+    /**
+     * Deletes a message; the sender only.
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteMessage(@PathVariable Long id, HttpSession session) {
         User currentUser = userService.getCurrentUser(session);
@@ -196,6 +211,9 @@ public class MessageController {
         }
     }
     
+    /**
+     * Returns the logged-in user's unread message count.
+     */
     @GetMapping("/unread-count")
     public ResponseEntity<?> getUnreadMessageCount(HttpSession session) {
         User currentUser = userService.getCurrentUser(session);

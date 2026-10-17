@@ -36,6 +36,9 @@ public class CategoryController {
     @Autowired
     private UserService userService;
     
+    /**
+     * Lists all book categories.
+     */
     @GetMapping
     public ResponseEntity<?> getAllCategories() {
         List<Map<String, Object>> categories = categoryService.getAllCategories().stream()
@@ -51,6 +54,9 @@ public class CategoryController {
         return ResponseEntity.ok(categories);
     }
     
+    /**
+     * Returns a single category by id.
+     */
     @GetMapping("/{id}")
     public ResponseEntity<?> getCategoryById(@PathVariable Long id) {
         try {
@@ -69,6 +75,9 @@ public class CategoryController {
         }
     }
     
+    /**
+     * Creates a new category; requires the ADMIN role.
+     */
     @PostMapping
     public ResponseEntity<?> createCategory(
             @RequestParam("name") String name,
@@ -102,6 +111,9 @@ public class CategoryController {
         }
     }
     
+    /**
+     * Updates a category; requires the ADMIN role.
+     */
     @PutMapping("/{id}")
     public ResponseEntity<?> updateCategory(
             @PathVariable Long id,
@@ -136,6 +148,9 @@ public class CategoryController {
         }
     }
     
+    /**
+     * Deletes a category; requires the ADMIN role.
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteCategory(@PathVariable Long id, HttpSession session) {
         if (!userService.isAdmin(session)) {

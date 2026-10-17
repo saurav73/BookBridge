@@ -40,6 +40,9 @@ public class AdminController {
     @Autowired
     private TransactionRepository transactionRepository;
     
+    /**
+     * Returns admin dashboard statistics; requires the ADMIN role.
+     */
     @GetMapping("/dashboard")
     public ResponseEntity<?> getDashboardStats(HttpSession session) {
         if (!userService.isAdmin(session)) {

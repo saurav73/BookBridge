@@ -35,6 +35,9 @@ public class NotificationController {
     @Autowired
     private UserService userService;
     
+    /**
+     * Lists the logged-in user's notifications.
+     */
     @GetMapping
     public ResponseEntity<?> getMyNotifications(HttpSession session) {
         User currentUser = userService.getCurrentUser(session);
@@ -62,6 +65,9 @@ public class NotificationController {
         return ResponseEntity.ok(notifications);
     }
     
+    /**
+     * Lists the logged-in user's unread notifications.
+     */
     @GetMapping("/unread")
     public ResponseEntity<?> getUnreadNotifications(HttpSession session) {
         User currentUser = userService.getCurrentUser(session);
@@ -87,6 +93,9 @@ public class NotificationController {
         return ResponseEntity.ok(notifications);
     }
     
+    /**
+     * Returns the logged-in user's unread notification count.
+     */
     @GetMapping("/unread-count")
     public ResponseEntity<?> getUnreadNotificationCount(HttpSession session) {
         User currentUser = userService.getCurrentUser(session);
@@ -105,6 +114,9 @@ public class NotificationController {
         return ResponseEntity.ok(response);
     }
     
+    /**
+     * Marks a notification as read; the recipient only.
+     */
     @PutMapping("/{id}/read")
     public ResponseEntity<?> markNotificationAsRead(@PathVariable Long id, HttpSession session) {
         User currentUser = userService.getCurrentUser(session);
@@ -135,6 +147,9 @@ public class NotificationController {
         }
     }
     
+    /**
+     * Marks all of the logged-in user's notifications as read.
+     */
     @PutMapping("/mark-all-read")
     public ResponseEntity<?> markAllNotificationsAsRead(HttpSession session) {
         User currentUser = userService.getCurrentUser(session);
@@ -153,6 +168,9 @@ public class NotificationController {
         return ResponseEntity.ok(response);
     }
     
+    /**
+     * Deletes a notification; the recipient only.
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteNotification(@PathVariable Long id, HttpSession session) {
         User currentUser = userService.getCurrentUser(session);

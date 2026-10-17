@@ -51,6 +51,9 @@ public class BookController {
     @Autowired
     private CategoryService categoryService;
     
+    /**
+     * Lists all book listings with pagination and sorting.
+     */
     @GetMapping
     public ResponseEntity<?> getAllBooks(
             @RequestParam(value = "page", defaultValue = "0") int page,
@@ -74,6 +77,9 @@ public class BookController {
         return ResponseEntity.ok(response);
     }
     
+    /**
+     * Returns a single book listing by id.
+     */
     @GetMapping("/{id}")
     public ResponseEntity<?> getBookById(@PathVariable Long id) {
         try {
@@ -86,6 +92,9 @@ public class BookController {
         }
     }
     
+    /**
+     * Lists a user's book listings with pagination.
+     */
     @GetMapping("/user/{userId}")
     public ResponseEntity<?> getBooksByUser(
             @PathVariable Long userId,
@@ -113,6 +122,9 @@ public class BookController {
         }
     }
     
+    /**
+     * Lists the logged-in user's own book listings with pagination.
+     */
     @GetMapping("/my-books")
     public ResponseEntity<?> getMyBooks(
             HttpSession session,
@@ -141,6 +153,9 @@ public class BookController {
         return ResponseEntity.ok(response);
     }
     
+    /**
+     * Searches book listings by keyword, category, condition, listing type, and price range.
+     */
     @GetMapping("/search")
     public ResponseEntity<?> searchBooks(
             @RequestParam(value = "keyword", required = false, defaultValue = "") String keyword,
@@ -177,6 +192,9 @@ public class BookController {
         return ResponseEntity.ok(response);
     }
     
+    /**
+     * Creates a new book listing for the logged-in user.
+     */
     @PostMapping
     public ResponseEntity<?> createBook(
             @RequestParam("title") String title,
@@ -219,6 +237,9 @@ public class BookController {
         }
     }
     
+    /**
+     * Updates a book listing; the book owner only.
+     */
     @PutMapping("/{id}")
     public ResponseEntity<?> updateBook(
             @PathVariable Long id,
@@ -265,6 +286,9 @@ public class BookController {
         }
     }
     
+    /**
+     * Deletes a book listing; the book owner only.
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteBook(@PathVariable Long id, HttpSession session) {
         User currentUser = userService.getCurrentUser(session);
@@ -289,6 +313,9 @@ public class BookController {
         }
     }
     
+    /**
+     * Changes a book listing's availability status; the book owner only.
+     */
     @PutMapping("/{id}/status")
     public ResponseEntity<?> updateBookStatus(
             @PathVariable Long id,

@@ -33,6 +33,9 @@ public class UserController {
     @Autowired
     private UserService userService;
     
+    /**
+     * Lists all users; requires the ADMIN role.
+     */
     @GetMapping
     public ResponseEntity<?> getAllUsers(HttpSession session) {
         if (!userService.isAdmin(session)) {
@@ -58,6 +61,9 @@ public class UserController {
         return ResponseEntity.ok(users);
     }
     
+    /**
+     * Returns a single user by id.
+     */
     @GetMapping("/{id}")
     public ResponseEntity<?> getUserById(@PathVariable Long id, HttpSession session) {
         try {
@@ -79,6 +85,9 @@ public class UserController {
         }
     }
     
+    /**
+     * Updates a user's profile; the user themselves or an admin.
+     */
     @PutMapping("/{id}")
     public ResponseEntity<?> updateUser(
             @PathVariable Long id,
@@ -129,6 +138,9 @@ public class UserController {
         }
     }
     
+    /**
+     * Deletes a user; requires the ADMIN role.
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable Long id, HttpSession session) {
         User currentUser = userService.getCurrentUser(session);
@@ -165,6 +177,9 @@ public class UserController {
         }
     }
     
+    /**
+     * Changes a user's role; requires the ADMIN role.
+     */
     @PutMapping("/{id}/role")
     public ResponseEntity<?> updateUserRole(
             @PathVariable Long id,
