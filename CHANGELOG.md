@@ -1,5 +1,10 @@
 # BookBridge Changelog
 
+## 2026-10-17
+- Added method-level Javadoc to all service classes: chat, message, and notification services (22 methods); transaction, user, book, and category services (45 methods)
+- Added endpoint Javadoc to all 9 controllers (47 endpoint methods)
+- Added method-level Javadoc to `FileStorageService`, `PasswordEncoder`, and all 7 repository interfaces (39 methods)
+
 ## 2026-10-15
 - Added class-level Javadoc to all model classes and enums (16), repository interfaces (7), exception classes (4), WebConfig, and the application entry point
 
