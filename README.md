@@ -32,6 +32,18 @@ Configure in `src/main/resources/application.properties` first:
 | `server.servlet.session.timeout` | Session timeout |
 | `spring.session.store-type` | Session storage backend |
 
+## Real-time chat over WebSocket
+
+Live chat uses STOMP over SockJS. Connect to `/ws`, then:
+
+- **Send** a message to `/app/chat` with a payload containing
+  `senderId`, `receiverId`, `content`, and optional `bookId`
+- **Receive** messages on the user destination `/user/queue/messages`
+  (the simple broker also serves `/topic` and `/queue`)
+
+Message history and REST endpoints for chat live under
+`MessageController` (`/api/messages`).
+
 ## Project structure
 
 | Path | What it is |
