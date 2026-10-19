@@ -1,5 +1,8 @@
 # BookBridge Changelog
 
+## 2026-10-19
+- Documented the WebSocket/STOMP chat surface in the README: `/ws` SockJS endpoint, `/app/chat` send destination with payload fields, `/user/queue/messages` receive destination
+
 ## 2026-10-17
 - Added method-level Javadoc to all service classes: chat, message, and notification services (22 methods); transaction, user, book, and category services (45 methods)
 - Added endpoint Javadoc to all 9 controllers (47 endpoint methods)
