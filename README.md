@@ -25,7 +25,7 @@ Configure in `src/main/resources/application.properties` first:
 
 | Key | Purpose |
 |---|---|
-| `server.port` | HTTP port |
+| `server.port` | HTTP port (default `8080`) |
 | `spring.datasource.url` / `username` / `password` | MySQL connection |
 | `spring.jpa.hibernate.ddl-auto` | Schema handling |
 | `file.upload-dir` | Where uploaded photos are stored (`uploads/`, not committed) |

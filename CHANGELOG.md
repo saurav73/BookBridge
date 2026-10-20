@@ -1,5 +1,9 @@
 # BookBridge Changelog
 
+## 2026-10-20
+- Fixed `mvnw` file mode in git: the 2026-10-11 entry claimed it was executable, but the git index still carried mode 100644 — now recorded as 100755 so fresh clones can run `./mvnw` directly
+- README config table now states the actual default port (`8080`)
+
 ## 2026-10-19
 - Documented the WebSocket/STOMP chat surface in the README: `/ws` SockJS endpoint, `/app/chat` send destination with payload fields, `/user/queue/messages` receive destination
 
