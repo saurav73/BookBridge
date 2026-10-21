@@ -29,7 +29,7 @@ Configure in `src/main/resources/application.properties` first:
 | `spring.datasource.url` / `username` / `password` | MySQL connection |
 | `spring.jpa.hibernate.ddl-auto` | Schema handling |
 | `file.upload-dir` | Where uploaded photos are stored (`uploads/`, not committed) |
-| `server.servlet.session.timeout` | Session timeout |
+| `server.servlet.session.timeout` | Session timeout in seconds (default `86400` = 24 hours) |
 | `spring.session.store-type` | Session storage backend |
 
 ## Real-time chat over WebSocket
