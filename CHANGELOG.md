@@ -1,5 +1,10 @@
 # BookBridge Changelog
 
+## 2026-10-21
+- README config table now documents the unit of `server.servlet.session.timeout` (seconds; default `86400` = 24 hours)
+- Verified the WebSocket/STOMP chat docs against `WebSocketConfig` and `MessageController`: `/ws` endpoint, `/app` prefix, `/topic`+`/queue` broker, `/queue/messages` user destination all still accurate
+- No secrets committed: `application.properties` carries no credentials beyond an empty MySQL password; `uploads/` stays git-ignored and untracked
+
 ## 2026-10-20
 - Fixed `mvnw` file mode in git: the 2026-10-11 entry claimed it was executable, but the git index still carried mode 100644 — now recorded as 100755 so fresh clones can run `./mvnw` directly
 - README config table now states the actual default port (`8080`)
