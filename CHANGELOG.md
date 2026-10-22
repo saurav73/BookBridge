@@ -1,5 +1,9 @@
 # BookBridge Changelog
 
+## 2026-10-22
+- Removed the unused `java.util.List` import from `BookController` (no references in the file body)
+- Re-verified README tech line against `pom.xml`: Java 11 / Spring Boot / session auth all still accurate; no doc changes needed
+
 ## 2026-10-21
 - README config table now documents the unit of `server.servlet.session.timeout` (seconds; default `86400` = 24 hours)
 - Verified the WebSocket/STOMP chat docs against `WebSocketConfig` and `MessageController`: `/ws` endpoint, `/app` prefix, `/topic`+`/queue` broker, `/queue/messages` user destination all still accurate
