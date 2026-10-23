@@ -1,5 +1,11 @@
 # BookBridge Changelog
 
+Dated record of shipped work.
+
+## 2026-10-23
+- Re-verified the README against the code: Java 11 in `pom.xml`, `file.upload-dir` in `application.properties`, `/app/chat` STOMP destination matches `@MessageMapping("/chat")` in `MessageController` (prefix `/app` in `WebSocketConfig`), all listed controllers and the `exception/` package exist — docs accurate, no changes needed
+
+
 ## 2026-10-22
 - Removed the unused `java.util.List` import from `BookController` (no references in the file body)
 - Re-verified README tech line against `pom.xml`: Java 11 / Spring Boot / session auth all still accurate; no doc changes needed
