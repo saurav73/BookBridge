@@ -2,6 +2,9 @@
 
 Dated record of shipped work.
 
+## 2026-10-24
+- Re-verified the README against the code: all 9 listed controllers exist, `server.port=8080` and `file.upload-dir=uploads` match `application.properties`, `/ws` STOMP endpoint still registered in `WebSocketConfig`, every main-source class carries class-level Javadoc, no unused imports remain — docs accurate, no changes needed
+
 ## 2026-10-23
 - Re-verified the README against the code: Java 11 in `pom.xml`, `file.upload-dir` in `application.properties`, `/app/chat` STOMP destination matches `@MessageMapping("/chat")` in `MessageController` (prefix `/app` in `WebSocketConfig`), all listed controllers and the `exception/` package exist — docs accurate, no changes needed
 
