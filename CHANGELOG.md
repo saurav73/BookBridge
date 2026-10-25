@@ -2,6 +2,10 @@
 
 Dated record of shipped work.
 
+## 2026-10-25
+- README: pinned Spring Boot 2.7 in the Tech section (pom parent is 2.7.14; previously unversioned) and documented the test suite — a single context-load test, stated honestly with no implied broader coverage
+- Re-verified the README against the code: all 9 listed controllers exist, `server.port=8080` and `file.upload-dir=uploads` match `application.properties`, `uploads/` is git-ignored as documented — docs accurate
+
 ## 2026-10-24
 - Re-verified the README against the code: all 9 listed controllers exist, `server.port=8080` and `file.upload-dir=uploads` match `application.properties`, `/ws` STOMP endpoint still registered in `WebSocketConfig`, every main-source class carries class-level Javadoc, no unused imports remain — docs accurate, no changes needed
 
