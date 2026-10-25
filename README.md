@@ -44,6 +44,15 @@ Live chat uses STOMP over SockJS. Connect to `/ws`, then:
 Message history and REST endpoints for chat live under
 `MessageController` (`/api/messages`).
 
+## Tests
+
+```bash
+./mvnw test
+```
+
+The suite is currently a single Spring context-load test
+(`BookbridgeApplicationTests`); there are no controller or service tests yet.
+
 ## Project structure
 
 | Path | What it is |
