@@ -13,7 +13,7 @@
 
 ## Tech
 
-Java 11, Spring Boot, Spring Security (session-based, see `SessionConfig`), WebSocket, JPA/Hibernate, MySQL, Maven.
+Java 11, Spring Boot 2.7, Spring Security (session-based, see `SessionConfig`), WebSocket, JPA/Hibernate, MySQL, Maven.
 
 ## Setup
 
