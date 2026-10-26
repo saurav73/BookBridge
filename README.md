@@ -30,7 +30,7 @@ Configure in `src/main/resources/application.properties` first:
 | `spring.jpa.hibernate.ddl-auto` | Schema handling |
 | `file.upload-dir` | Where uploaded photos are stored (`uploads/`, not committed) |
 | `server.servlet.session.timeout` | Session timeout in seconds (default `86400` = 24 hours) |
-| `spring.session.store-type` | Session storage backend |
+| `spring.session.store-type` | Session storage backend — set to `none` in `application.properties`, so sessions are in-memory only and are not persisted across restarts |
 
 ## Real-time chat over WebSocket
 
