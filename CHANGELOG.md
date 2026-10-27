@@ -2,6 +2,9 @@
 
 Dated record of shipped work.
 
+## 2026-10-27
+- README: completed the structure table with the model/, repository/, service/ and util/ packages, previously undocumented
+
 ## 2026-10-26
 - README: pinned Spring Boot to 2.7.14 in the Tech section (was 2.7; pom parent is 2.7.14) and clarified `spring.session.store-type` — it is `none` in `application.properties`, so sessions are in-memory only and not persisted across restarts
 - Re-verified the README against the code: all 9 listed controllers exist, `server.port=8080` and `file.upload-dir=uploads` match `application.properties`
