@@ -59,6 +59,10 @@ The suite is currently a single Spring context-load test
 |---|---|
 | `src/main/java/com/bookbridge/controller/` | REST + WebSocket controllers |
 | `src/main/java/com/bookbridge/config/` | Session, web, and WebSocket config |
+| `src/main/java/com/bookbridge/model/` | JPA entities (books, users, chats, transactions) |
+| `src/main/java/com/bookbridge/repository/` | Spring Data repositories |
+| `src/main/java/com/bookbridge/service/` | Business logic |
+| `src/main/java/com/bookbridge/util/` | File storage + password helpers |
 | `src/main/java/com/bookbridge/exception/` | Domain exceptions |
 | `src/main/resources/application.properties` | All configuration |
 | `CHANGELOG.md` | Dated build history |
