@@ -3,6 +3,10 @@
 Dated record of shipped work.
 
 
+## 2026-10-29
+- README: documented the setup defaults from application.properties - default database `bookbridge` (auto-created) and `ddl-auto` default `update`
+- Re-verified the README against the code: all 9 listed controllers exist, WebSocket endpoint `/ws` with `/app` prefix and `/topic` + `/queue` broker match WebSocketConfig, `uploads/` is git-ignored
+
 ## 2026-10-28
 - README: documented the upload caps from application.properties - 100 MB per file, 150 MB per request - alongside the existing `file.upload-dir` row
 - Re-verified the README against the code: all 9 listed controllers exist, `server.port=8080` and `file.upload-dir=uploads` match application.properties
