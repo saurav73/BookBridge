@@ -26,8 +26,8 @@ Configure in `src/main/resources/application.properties` first:
 | Key | Purpose |
 |---|---|
 | `server.port` | HTTP port (default `8080`) |
-| `spring.datasource.url` / `username` / `password` | MySQL connection |
-| `spring.jpa.hibernate.ddl-auto` | Schema handling |
+| `spring.datasource.url` / `username` / `password` | MySQL connection (default database `bookbridge`, auto-created via `createDatabaseIfNotExist=true`) |
+| `spring.jpa.hibernate.ddl-auto` | Schema handling (default `update`) |
 | `file.upload-dir` | Where uploaded photos are stored (`uploads/`, not committed) |
 | `spring.servlet.multipart.max-file-size` / `max-request-size` | Upload caps: 100 MB per file, 150 MB per request |
 | `server.servlet.session.timeout` | Session timeout in seconds (default `86400` = 24 hours) |
