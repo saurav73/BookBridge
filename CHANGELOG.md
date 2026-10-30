@@ -3,6 +3,10 @@
 Dated record of shipped work.
 
 
+## 2026-10-30
+- README: Books bullet now documents the listing taxonomy (ListingType, BookCondition, DeliveryMethod enums; new books default AVAILABLE), read from the model sources
+- Re-verified: setup table still matches application.properties (port 8080, bookbridge database, ddl-auto update, 100 MB / 150 MB upload caps)
+
 ## 2026-10-29
 - README: documented the setup defaults from application.properties - default database `bookbridge` (auto-created) and `ddl-auto` default `update`
 - Re-verified the README against the code: all 9 listed controllers exist, WebSocket endpoint `/ws` with `/app` prefix and `/topic` + `/queue` broker match WebSocketConfig, `uploads/` is git-ignored
