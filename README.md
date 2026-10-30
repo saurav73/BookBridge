@@ -4,7 +4,7 @@
 
 ## Features
 
-- **Books & categories** — list books, browse by category (`BookController`, `CategoryController`)
+- **Books & categories** — list books, browse by category (`BookController`, `CategoryController`); listings are SELL, EXCHANGE or DONATE, conditions NEW / USED_LIKE_NEW / USED_GOOD / USED_FAIR, delivery LOCAL_PICKUP or SHIPPING, and new books start AVAILABLE
 - **Auth & users** — registration/login, user profiles, admin panel (`AuthController`, `UserController`, `AdminController`)
 - **Real-time chat** — WebSocket-based messaging between users (`ChatController`, `MessageController`, `WebSocketConfig`)
 - **Transactions** — buy/sell/exchange flows (`TransactionController`)
