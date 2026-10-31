@@ -3,6 +3,10 @@
 Dated record of shipped work.
 
 
+## 2026-10-31
+- README: controller row now counts 9 controllers across 50 Java source files, counted from src/
+- Re-verified: setup table still matches application.properties (port 8080, bookbridge database, ddl-auto update, 100 MB / 150 MB upload caps)
+
 ## 2026-10-30
 - README: Books bullet now documents the listing taxonomy (ListingType, BookCondition, DeliveryMethod enums; new books default AVAILABLE), read from the model sources
 - Re-verified: setup table still matches application.properties (port 8080, bookbridge database, ddl-auto update, 100 MB / 150 MB upload caps)
