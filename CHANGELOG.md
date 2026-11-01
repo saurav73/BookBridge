@@ -3,6 +3,10 @@
 Dated record of shipped work.
 
 
+## 2026-11-01
+- README: structure table now states the layer counts (16 model classes: 7 entities + 9 enums, 7 repositories, 7 services), counted from the sources
+- Re-verified: all 9 controller files still present (Admin, Auth, Book, Category, Chat, Message, Notification, Transaction, User)
+
 ## 2026-10-31
 - README: controller row now counts 9 controllers across 50 Java source files, counted from src/
 - Re-verified: setup table still matches application.properties (port 8080, bookbridge database, ddl-auto update, 100 MB / 150 MB upload caps)
