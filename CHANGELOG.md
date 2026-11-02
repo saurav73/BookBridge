@@ -3,6 +3,10 @@
 Dated record of shipped work.
 
 
+## 2026-11-02
+- README: structure table now names the exception and util classes (4 exceptions, 2 helpers), counted from the sources
+- Re-verified: all 9 controller files still present (Admin, Auth, Book, Category, Chat, Message, Notification, Transaction, User)
+
 ## 2026-11-01
 - README: structure table now states the layer counts (16 model classes: 7 entities + 9 enums, 7 repositories, 7 services), counted from the sources
 - Re-verified: all 9 controller files still present (Admin, Auth, Book, Category, Chat, Message, Notification, Transaction, User)
