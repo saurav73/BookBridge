@@ -3,6 +3,10 @@
 Dated record of shipped work.
 
 
+## 2026-11-03
+- README: structure table now clarifies the 50 Java files as 49 main sources + the single context-load test, counted from src/
+- Re-verified: all 9 controller files still present (Admin, Auth, Book, Category, Chat, Message, Notification, Transaction, User)
+
 ## 2026-11-02
 - README: structure table now names the exception and util classes (4 exceptions, 2 helpers), counted from the sources
 - Re-verified: all 9 controller files still present (Admin, Auth, Book, Category, Chat, Message, Notification, Transaction, User)
