@@ -62,7 +62,7 @@ The suite is currently a single Spring context-load test
 | `src/main/java/com/bookbridge/config/` | Session, web, and WebSocket config |
 | `src/main/java/com/bookbridge/model/` | JPA entities — 16 classes: 7 entities (`Book`, `Category`, `Chat`, `Message`, `Notification`, `Transaction`, `User`) + 9 enums (`BookCondition`, `BookStatus`, `DeliveryMethod`, `ListingType`, `MessageStatus`, `NotificationType`, `TransactionStatus`, `TransactionType`, `UserRole`), counted from `model/` |
 | `src/main/java/com/bookbridge/repository/` | Spring Data repositories (7, counted from `repository/`) |
-| `src/main/java/com/bookbridge/service/` | Business logic (7 services, counted from `service/`) |
+| `src/main/java/com/bookbridge/service/` | Business logic (7 services: Book, Category, Chat, Message, Notification, Transaction, User, counted from `service/`) |
 | `src/main/java/com/bookbridge/util/` | File storage + password helpers (`FileStorageService`, `PasswordEncoder`) |
 | `src/main/java/com/bookbridge/exception/` | 4 domain exceptions (`FileStorageException`, `ResourceAlreadyExistsException`, `ResourceNotFoundException`, `UserAlreadyExistsException`) |
 | `src/main/resources/application.properties` | All configuration |
