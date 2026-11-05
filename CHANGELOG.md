@@ -4,6 +4,10 @@ Dated record of shipped work.
 
 
 
+## 2026-11-05
+- README: structure table now names the 7 services (Book, Category, Chat, Message, Notification, Transaction, User), counted from `service/`
+- Re-verified: all 9 controller files still present (Admin, Auth, Book, Category, Chat, Message, Notification, Transaction, User)
+
 ## 2026-11-04
 - README: structure table now names the 9 model enums, counted from `model/`
 - Re-verified: all 9 controller files still present (Admin, Auth, Book, Category, Chat, Message, Notification, Transaction, User)
