@@ -4,6 +4,10 @@ Dated record of shipped work.
 
 
 
+## 2026-11-06
+- README: structure table now states the 46 endpoint mappings (22 GET, 8 POST, 9 PUT, 7 DELETE) across the 9 controllers, counted from `src/`
+- Re-verified: all 9 controller files still present (Admin, Auth, Book, Category, Chat, Message, Notification, Transaction, User)
+
 ## 2026-11-05
 - README: structure table now names the 7 services (Book, Category, Chat, Message, Notification, Transaction, User), counted from `service/`
 - Re-verified: all 9 controller files still present (Admin, Auth, Book, Category, Chat, Message, Notification, Transaction, User)
