@@ -4,6 +4,10 @@ Dated record of shipped work.
 
 
 
+## 2026-11-07
+- README: config row now names the 3 config classes (`SessionConfig`, `WebConfig`, `WebSocketConfig`), counted from `config/`
+- Re-verified: the WebSocket broker still serves `/topic` + `/queue` with app prefix `/app` and user prefix `/user` (`WebSocketConfig`), new books still default to `AVAILABLE` (`Book.java`), and `uploads/` is still git-ignored
+
 ## 2026-11-06
 - README: structure table now states the 46 endpoint mappings (22 GET, 8 POST, 9 PUT, 7 DELETE) across the 9 controllers, counted from `src/`
 - Re-verified: all 9 controller files still present (Admin, Auth, Book, Category, Chat, Message, Notification, Transaction, User)
