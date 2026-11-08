@@ -93,6 +93,10 @@ Dated record of shipped work.
 ## 2026-10-13
 - Added class-level Javadoc to all 9 controllers, both configs (session, WebSocket), and the storage/encoder utils
 
+## 2026-11-08
+- README: config table now covers the remaining `application.properties` keys (MySQL driver class, SQL logging, and the Spring/app log levels)
+- Re-verified: the 46 endpoint mappings (22 GET, 8 POST, 9 PUT, 7 DELETE) across the 9 controllers are unchanged, the model layer still holds 16 classes (7 entities + 9 enums) with the SELL/EXCHANGE/DONATE, NEW/USED_*, and LOCAL_PICKUP/SHIPPING values intact, and new books still default to `AVAILABLE`
+
 ## 2026-10-11
 - Removed a committed user ID-card photo from git tracking; `uploads/` is now git-ignored (user uploads don't belong in the repo)
 - Made `mvnw` executable
