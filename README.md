@@ -30,6 +30,9 @@ Configure in `src/main/resources/application.properties` first:
 | `spring.jpa.hibernate.ddl-auto` | Schema handling (default `update`) |
 | `file.upload-dir` | Where uploaded photos are stored (`uploads/`, not committed) |
 | `spring.servlet.multipart.max-file-size` / `max-request-size` | Upload caps: 100 MB per file, 150 MB per request |
+| `spring.datasource.driver-class-name` | JDBC driver (`com.mysql.cj.jdbc.Driver`) |
+| `spring.jpa.show-sql` / `spring.jpa.properties.hibernate.format_sql` | Log SQL statements (`true`) and format them (`true`) |
+| `logging.level.org.springframework` / `logging.level.com.bookbridge` | Log levels: Spring `INFO`, app code `DEBUG` |
 | `server.servlet.session.timeout` | Session timeout in seconds (default `86400` = 24 hours) |
 | `spring.session.store-type` | Session storage backend — set to `none` in `application.properties`, so sessions are in-memory only and are not persisted across restarts |
 
