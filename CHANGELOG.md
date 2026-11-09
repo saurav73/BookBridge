@@ -4,6 +4,15 @@ Dated record of shipped work.
 
 
 
+## 2026-11-09
+- README: config table now covers the last two `application.properties` keys (`spring.jpa.properties.hibernate.dialect`, `spring.servlet.multipart.enabled`) — the table covers all 17 keys in the file
+- CHANGELOG: moved the 2026-11-08 entry to the top of the file, where it belongs — it had been inserted between the 2026-10-13 and 2026-10-11 entries, breaking the newest-first order
+- Re-verified: the 46 endpoint mappings (22 GET, 8 POST, 9 PUT, 7 DELETE) across the 9 controllers are unchanged, the model layer still holds 16 classes (7 entities + 9 enums), and the WebSocket broker still serves `/topic` + `/queue` with app prefix `/app` and user prefix `/user`
+
+## 2026-11-08
+- README: config table now covers the remaining `application.properties` keys (MySQL driver class, SQL logging, and the Spring/app log levels)
+- Re-verified: the 46 endpoint mappings (22 GET, 8 POST, 9 PUT, 7 DELETE) across the 9 controllers are unchanged, the model layer still holds 16 classes (7 entities + 9 enums) with the SELL/EXCHANGE/DONATE, NEW/USED_*, and LOCAL_PICKUP/SHIPPING values intact, and new books still default to `AVAILABLE`
+
 ## 2026-11-07
 - README: config row now names the 3 config classes (`SessionConfig`, `WebConfig`, `WebSocketConfig`), counted from `config/`
 - Re-verified: the WebSocket broker still serves `/topic` + `/queue` with app prefix `/app` and user prefix `/user` (`WebSocketConfig`), new books still default to `AVAILABLE` (`Book.java`), and `uploads/` is still git-ignored
@@ -92,10 +101,6 @@ Dated record of shipped work.
 
 ## 2026-10-13
 - Added class-level Javadoc to all 9 controllers, both configs (session, WebSocket), and the storage/encoder utils
-
-## 2026-11-08
-- README: config table now covers the remaining `application.properties` keys (MySQL driver class, SQL logging, and the Spring/app log levels)
-- Re-verified: the 46 endpoint mappings (22 GET, 8 POST, 9 PUT, 7 DELETE) across the 9 controllers are unchanged, the model layer still holds 16 classes (7 entities + 9 enums) with the SELL/EXCHANGE/DONATE, NEW/USED_*, and LOCAL_PICKUP/SHIPPING values intact, and new books still default to `AVAILABLE`
 
 ## 2026-10-11
 - Removed a committed user ID-card photo from git tracking; `uploads/` is now git-ignored (user uploads don't belong in the repo)
