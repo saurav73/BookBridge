@@ -4,6 +4,9 @@ Dated record of shipped work.
 
 
 
+## 2026-11-10
+- Re-verified: the 46 endpoint mappings (22 GET, 8 POST, 9 PUT, 7 DELETE) across the 9 controllers are unchanged, the config table still covers all 17 `application.properties` keys, the repo still holds 50 Java files (49 main sources + the single context-load test), `pom.xml` still pins Java 11 and Spring Boot 2.7.14 as the README states, and the WebSocket broker still serves `/topic` + `/queue` with app prefix `/app` and user prefix `/user`
+
 ## 2026-11-09
 - README: config table now covers the last two `application.properties` keys (`spring.jpa.properties.hibernate.dialect`, `spring.servlet.multipart.enabled`) — the table covers all 17 keys in the file
 - CHANGELOG: moved the 2026-11-08 entry to the top of the file, where it belongs — it had been inserted between the 2026-10-13 and 2026-10-11 entries, breaking the newest-first order
