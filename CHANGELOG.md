@@ -4,6 +4,9 @@ Dated record of shipped work.
 
 
 
+## 2026-11-11
+- Re-verified: the 46 endpoint mappings (22 GET, 8 POST, 9 PUT, 7 DELETE) across the 9 controllers are unchanged, the config table still covers all 17 `application.properties` keys (counted with hyphens included: `driver-class-name`, `ddl-auto`, `show-sql`, `max-file-size`, `upload-dir`, `store-type`), the repo still holds 50 Java files (49 main sources + the single context-load test), `pom.xml` still pins Java 11 and Spring Boot 2.7.14 as the README states, the model layer still holds 16 classes (7 entities + 9 enums), and the WebSocket broker still serves `/topic` + `/queue` with app prefix `/app` and user prefix `/user`
+
 ## 2026-11-10
 - Re-verified: the 46 endpoint mappings (22 GET, 8 POST, 9 PUT, 7 DELETE) across the 9 controllers are unchanged, the config table still covers all 17 `application.properties` keys, the repo still holds 50 Java files (49 main sources + the single context-load test), `pom.xml` still pins Java 11 and Spring Boot 2.7.14 as the README states, and the WebSocket broker still serves `/topic` + `/queue` with app prefix `/app` and user prefix `/user`
 
