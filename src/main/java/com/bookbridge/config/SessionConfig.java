@@ -16,11 +16,13 @@ import java.util.concurrent.ConcurrentHashMap;
 @EnableSpringHttpSession
 public class SessionConfig {
     
+    /** In-memory session store backed by a concurrent map (sessions are not persisted across restarts). */
     @Bean
     public MapSessionRepository sessionRepository() {
         return new MapSessionRepository(new ConcurrentHashMap<>());
     }
     
+    /** Session cookie named BOOK_BRIDGE_SESSION, valid for one day, scoped to the site root. */
     @Bean
     public CookieSerializer cookieSerializer() {
         DefaultCookieSerializer serializer = new DefaultCookieSerializer();

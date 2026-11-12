@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class BookbridgeApplication {
 
+	/** Starts the BookBridge application. */
 	public static void main(String[] args) {
 		SpringApplication.run(BookbridgeApplication.class, args);
 	}

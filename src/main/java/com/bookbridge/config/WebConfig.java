@@ -15,6 +15,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Value("${file.upload-dir:uploads}")
     private String uploadDir;
     
+    /** Allows the local frontend origins (localhost:3000/8080) with credentials, for all methods. */
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
@@ -25,6 +26,7 @@ public class WebConfig implements WebMvcConfigurer {
                 .maxAge(3600);
     }
     
+    /** Serves uploaded book photos from the configured upload directory under /uploads/**. */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/uploads/**")
