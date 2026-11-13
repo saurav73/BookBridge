@@ -4,6 +4,9 @@ Dated record of shipped work.
 
 
 
+## 2026-11-13
+- Re-verified: the 46 endpoint mappings (22 GET, 8 POST, 9 PUT, 7 DELETE) across the 9 controllers are unchanged, the config table still covers all 17 `application.properties` keys, the repo still holds 50 Java files (49 main sources + the single context-load test), `pom.xml` still pins Java 11 and Spring Boot 2.7.14 as the README states, the model layer still holds 16 classes (7 entities + 9 enums), and the WebSocket broker still serves `/topic` + `/queue` with app prefix `/app` and user prefix `/user`
+
 ## 2026-11-12
 - Docs: Javadoc added to the last seven undocumented non-accessor methods — the session repository and cookie serializer beans, the CORS and upload resource handlers, the STOMP broker and endpoint registration, and `main()`; every public method in the codebase now carries a Javadoc or a one-line doc comment
 - Re-verified: the 46 endpoint mappings (22 GET, 8 POST, 9 PUT, 7 DELETE) across the 9 controllers are unchanged, the config table still covers all 17 `application.properties` keys, the repo still holds 50 Java files (49 main sources + the single context-load test), `pom.xml` still pins Java 11 and Spring Boot 2.7.14 as the README states, the model layer still holds 16 classes (7 entities + 9 enums), and the WebSocket broker still serves `/topic` + `/queue` with app prefix `/app` and user prefix `/user`
