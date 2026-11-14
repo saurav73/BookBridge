@@ -46,6 +46,10 @@ public class Chat {
     @JoinColumn(name = "book_id")
     private Book relatedBook;
     
+    /**
+     * Creates a chat with creation and last-message timestamps stamped to now.
+     * Required by JPA; {@code lastMessageAt} is refreshed whenever a message is sent.
+     */
     public Chat() {
         this.createdAt = LocalDateTime.now();
         this.lastMessageAt = LocalDateTime.now();

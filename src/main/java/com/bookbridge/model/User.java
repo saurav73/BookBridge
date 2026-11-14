@@ -64,6 +64,10 @@ public class User {
     @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL)
     private List<Transaction> sales = new ArrayList<>();
     
+    /**
+     * Creates a user with its creation timestamp stamped to now.
+     * Required by JPA.
+     */
     public User() {
         this.createdAt = LocalDateTime.now();
     }

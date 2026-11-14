@@ -45,6 +45,10 @@ public class Notification {
     
     private LocalDateTime readAt;
     
+    /**
+     * Creates a notification with its creation timestamp stamped to now.
+     * Required by JPA.
+     */
     public Notification() {
         this.createdAt = LocalDateTime.now();
     }

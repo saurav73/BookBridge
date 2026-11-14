@@ -52,6 +52,10 @@ public class Message {
     @JoinColumn(name = "book_id")
     private Book relatedBook;
     
+    /**
+     * Creates a message with its sent timestamp stamped to now.
+     * Required by JPA.
+     */
     public Message() {
         this.sentAt = LocalDateTime.now();
     }

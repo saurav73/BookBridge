@@ -67,6 +67,10 @@ public class Book {
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
     private List<Transaction> transactions = new ArrayList<>();
     
+    /**
+     * Creates a book with its creation and update timestamps stamped to now.
+     * Required by JPA; new listings are created through this constructor.
+     */
     public Book() {
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();

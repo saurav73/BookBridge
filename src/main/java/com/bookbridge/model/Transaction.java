@@ -59,6 +59,10 @@ public class Transaction {
     @JoinColumn(name = "exchange_book_id")
     private Book exchangeBook;
     
+    /**
+     * Creates a transaction with its creation timestamp stamped to now.
+     * Required by JPA.
+     */
     public Transaction() {
         this.createdAt = LocalDateTime.now();
     }
