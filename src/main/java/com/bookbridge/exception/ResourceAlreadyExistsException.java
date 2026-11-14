@@ -11,6 +11,12 @@ public class ResourceAlreadyExistsException extends RuntimeException {
     
     private static final long serialVersionUID = 1L;
     
+    /**
+     * Creates a duplicate-resource error, for example when registering with an email
+     * that already has an account.
+     *
+     * @param message description of the conflicting resource
+     */
     public ResourceAlreadyExistsException(String message) {
         super(message);
     }

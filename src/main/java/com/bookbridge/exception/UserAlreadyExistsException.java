@@ -11,6 +11,12 @@ public class UserAlreadyExistsException extends RuntimeException {
     
     private static final long serialVersionUID = 1L;
     
+    /**
+     * Creates a duplicate-user error, raised when registration uses an email that
+     * already has an account.
+     *
+     * @param message description of the duplicate user
+     */
     public UserAlreadyExistsException(String message) {
         super(message);
     }
