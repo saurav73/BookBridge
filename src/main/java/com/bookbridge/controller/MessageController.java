@@ -232,6 +232,14 @@ public class MessageController {
         return ResponseEntity.ok(response);
     }
     
+    /**
+     * Converts a message to its API response shape: flat fields plus nested
+     * sender and receiver (id and username) maps, the chat id when the message
+     * belongs to a chat, and the related book (id and title) when one is set.
+     *
+     * @param message the message to convert
+     * @return the response map for the message
+     */
     private Map<String, Object> convertToMessageResponse(Message message) {
         Map<String, Object> response = new HashMap<>();
         response.put("id", message.getId());

@@ -349,6 +349,13 @@ public class BookController {
         }
     }
     
+    /**
+     * Converts a book to its API response shape: flat fields plus nested
+     * category (id and name, only when set) and owner (id and username) maps.
+     *
+     * @param book the book to convert
+     * @return the response map for the book
+     */
     private Map<String, Object> convertToBookResponse(Book book) {
         Map<String, Object> response = new HashMap<>();
         response.put("id", book.getId());

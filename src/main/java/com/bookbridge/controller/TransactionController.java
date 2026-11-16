@@ -254,6 +254,15 @@ public class TransactionController {
         }
     }
     
+    /**
+     * Converts a transaction to its API response shape: flat fields plus nested
+     * book, seller, and buyer maps (id and username for the users; id, title,
+     * author, and image path for the book) and the exchange book map, included
+     * only for exchange transactions that name one.
+     *
+     * @param transaction the transaction to convert
+     * @return the response map for the transaction
+     */
     private Map<String, Object> convertToTransactionResponse(Transaction transaction) {
         Map<String, Object> response = new HashMap<>();
         response.put("id", transaction.getId());
