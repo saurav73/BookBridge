@@ -17,6 +17,10 @@ Java 11, Spring Boot 2.7.14, Spring Security (session-based, see `SessionConfig`
 
 ## Setup
 
+MySQL 8 must be running locally first — the `bookbridge` database is
+auto-created on connect (`createDatabaseIfNotExist=true`), but the server
+itself has to be up.
+
 ```bash
 ./mvnw spring-boot:run
 ```
