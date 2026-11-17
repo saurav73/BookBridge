@@ -2,6 +2,10 @@
 
 Dated record of shipped work.
 
+## 2026-11-17
+- Docs: README Setup now states MySQL 8 must be running locally before `./mvnw spring-boot:run` (the database is auto-created, the server is not); documented the first-admin bootstrap — registration always creates a `USER` and there is no seed admin, so the first admin is promoted directly in MySQL (`UPDATE users SET role='ADMIN' ...`), after which `PUT /api/users/{id}/role` works
+- Re-verified: the 46 endpoint mappings (22 GET, 8 POST, 9 PUT, 7 DELETE) across the 9 controllers are unchanged, the config table still covers all 17 `application.properties` keys, the repo still holds 50 Java files (49 main sources + the single context-load test), `pom.xml` still pins Java 11 and Spring Boot 2.7.14 as the README states, the model layer still holds 16 classes (7 entities + 9 enums), and the WebSocket broker still serves `/topic` + `/queue` with app prefix `/app` and user prefix `/user`; enum values in the Features list (`BookCondition`, `ListingType`, `DeliveryMethod`) and the `AVAILABLE` default for new books all still match the code, and `@MessageMapping("/chat")` still backs the documented `/app/chat` send destination
+
 ## 2026-11-16
 - Docs: Javadoc added to the last three undocumented non-accessor methods — the private response converters in `BookController`, `MessageController`, and `TransactionController`, which shape each endpoint's JSON (nested id/username maps, optional category/chat/related-book/exchange-book fields); every non-accessor method in the codebase now carries Javadoc
 - Re-verified: the 46 endpoint mappings (22 GET, 8 POST, 9 PUT, 7 DELETE) across the 9 controllers are unchanged, the config table still covers all 17 `application.properties` keys, the repo still holds 50 Java files (49 main sources + the single context-load test), `pom.xml` still pins Java 11 and Spring Boot 2.7.14 as the README states, the model layer still holds 16 classes (7 entities + 9 enums), and the WebSocket broker still serves `/topic` + `/queue` with app prefix `/app` and user prefix `/user`
