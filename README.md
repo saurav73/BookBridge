@@ -21,11 +21,12 @@ MySQL 8 must be running locally first — the `bookbridge` database is
 auto-created on connect (`createDatabaseIfNotExist=true`), but the server
 itself has to be up.
 
+Configure in `src/main/resources/application.properties` first (see the
+table below), then run:
+
 ```bash
 ./mvnw spring-boot:run
 ```
-
-Configure in `src/main/resources/application.properties` first:
 
 | Key | Purpose |
 |---|---|
