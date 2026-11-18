@@ -30,7 +30,7 @@ Configure in `src/main/resources/application.properties` first:
 | Key | Purpose |
 |---|---|
 | `server.port` | HTTP port (default `8080`) |
-| `spring.datasource.url` / `username` / `password` | MySQL connection (default database `bookbridge`, auto-created via `createDatabaseIfNotExist=true`) |
+| `spring.datasource.url` / `username` / `password` | MySQL connection (default database `bookbridge`, auto-created via `createDatabaseIfNotExist=true`; defaults: username `root`, empty password) |
 | `spring.jpa.hibernate.ddl-auto` | Schema handling (default `update`) |
 | `file.upload-dir` | Where uploaded photos are stored (`uploads/`, not committed) |
 | `spring.servlet.multipart.enabled` | Multipart upload handling (`true`) |
