@@ -2,6 +2,9 @@
 
 Dated record of shipped work.
 
+## 2026-11-19
+- Re-verified: the 46 endpoint mappings (22 GET, 8 POST, 9 PUT, 7 DELETE) across the 9 controllers are unchanged, the config table still covers all 17 `application.properties` keys, the repo still holds 50 Java files (49 main sources + the single context-load test), `pom.xml` still pins Java 11 and Spring Boot 2.7.14 as the README states, the model layer still holds 16 classes (7 entities + 9 enums), new books still default to `AVAILABLE`, `uploads/` is still git-ignored, and the WebSocket docs still match the code — `@MessageMapping("/chat")` backs the `/app/chat` send destination with `senderId` / `receiverId` / `content` / optional `bookId`, and confirmations go to `/user/queue/messages`
+
 ## 2026-11-18
 - Docs: README config table now states the default MySQL credentials (username `root`, empty password) alongside the database default; Setup section now reads in order — configure `application.properties` first, then `./mvnw spring-boot:run` (the run command was shown before the configure instruction it depends on)
 - Re-verified: the 46 endpoint mappings (22 GET, 8 POST, 9 PUT, 7 DELETE) across the 9 controllers are unchanged, the config table still covers all 17 `application.properties` keys, the repo still holds 50 Java files (49 main sources + the single context-load test), `pom.xml` still pins Java 11 and Spring Boot 2.7.14 as the README states, the model layer still holds 16 classes (7 entities + 9 enums), the WebSocket broker still serves `/topic` + `/queue` with app prefix `/app` and user prefix `/user`, `uploads/` is still git-ignored (`.gitignore:34`), and `PUT /api/users/{id}/role` still backs the documented first-admin flow
