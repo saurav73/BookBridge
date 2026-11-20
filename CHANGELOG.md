@@ -2,6 +2,10 @@
 
 Dated record of shipped work.
 
+## 2026-11-20
+- README: the controllers row now records the counts as re-verified 2026-11-20
+- Re-verified: the 46 endpoint mappings (22 GET, 8 POST, 9 PUT, 7 DELETE) across the 9 controllers are unchanged, the config table still covers all 17 `application.properties` keys (including the 100 MB / 150 MB multipart caps and `file.upload-dir=uploads`), the repo still holds 50 Java files (49 main sources + the single context-load test), `pom.xml` still pins Java 11 and Spring Boot 2.7.14 as the README states, `uploads/` is still git-ignored with nothing tracked under it, and the WebSocket docs still match the code (STOMP over SockJS, `/ws` endpoint, `/app` destination prefix)
+
 ## 2026-11-19
 - Re-verified: the 46 endpoint mappings (22 GET, 8 POST, 9 PUT, 7 DELETE) across the 9 controllers are unchanged, the config table still covers all 17 `application.properties` keys, the repo still holds 50 Java files (49 main sources + the single context-load test), `pom.xml` still pins Java 11 and Spring Boot 2.7.14 as the README states, the model layer still holds 16 classes (7 entities + 9 enums), new books still default to `AVAILABLE`, `uploads/` is still git-ignored, and the WebSocket docs still match the code — `@MessageMapping("/chat")` backs the `/app/chat` send destination with `senderId` / `receiverId` / `content` / optional `bookId`, and confirmations go to `/user/queue/messages`
 
