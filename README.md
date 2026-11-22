@@ -43,6 +43,8 @@ table below), then run:
 | `server.servlet.session.timeout` | Session timeout in seconds (default `86400` = 24 hours) |
 | `spring.session.store-type` | Session storage backend — set to `none` in `application.properties`, so sessions are in-memory only and are not persisted across restarts |
 
+All 17 keys above verified against `src/main/resources/application.properties` 2026-11-22 — every key is present with the value shown.
+
 **First admin:** registration always creates a `USER` and there is no seed
 admin, so promote the first admin directly in MySQL
 (`UPDATE users SET role='ADMIN' WHERE username='<name>';`). After that, an
