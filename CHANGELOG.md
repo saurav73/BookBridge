@@ -2,6 +2,10 @@
 
 Dated record of shipped work.
 
+## 2026-11-24
+- README: the config table and controllers row now record re-verification 2026-11-24
+- Re-verified: the config table covers all 17 `application.properties` keys with the exact values shown (port `8080`, `ddl-auto=update`, 100 MB / 150 MB multipart caps, `file.upload-dir=uploads`, session timeout `86400`, `store-type=none`, Spring `INFO` / app `DEBUG` log levels); the 46 endpoint mappings (22 GET, 8 POST, 9 PUT, 7 DELETE) across the 9 controllers are unchanged, the repo still holds 50 Java files (49 main sources + the single context-load test), `pom.xml` still pins Java 11 and Spring Boot 2.7.14 as the README states, the model layer still holds 16 classes (7 entities + 9 enums), and `uploads/` is still git-ignored with nothing tracked under it
+
 ## 2026-11-22
 - README: the config table now records all 17 keys as verified against `application.properties` 2026-11-22
 - Re-verified: the config table covers all 17 `application.properties` keys with the exact values shown (port `8080`, `ddl-auto=update`, 100 MB / 150 MB multipart caps, `file.upload-dir=uploads`, session timeout `86400`, `store-type=none`, Spring `INFO` / app `DEBUG` log levels); the suite is still the single context-load test (`BookbridgeApplicationTests`), the 46 endpoint mappings across the 9 controllers are unchanged, and `uploads/` is still git-ignored with nothing tracked under it
