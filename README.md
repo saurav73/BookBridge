@@ -43,7 +43,7 @@ table below), then run:
 | `server.servlet.session.timeout` | Session timeout in seconds (default `86400` = 24 hours) |
 | `spring.session.store-type` | Session storage backend — set to `none` in `application.properties`, so sessions are in-memory only and are not persisted across restarts |
 
-All 17 keys above verified against `src/main/resources/application.properties` 2026-11-22 — every key is present with the value shown.
+All 17 keys above verified against `src/main/resources/application.properties` 2026-11-24 — every key is present with the value shown.
 
 **First admin:** registration always creates a `USER` and there is no seed
 admin, so promote the first admin directly in MySQL
@@ -75,7 +75,7 @@ The suite is currently a single Spring context-load test
 
 | Path | What it is |
 |---|---|
-| `src/main/java/com/bookbridge/controller/` | REST + WebSocket controllers (9 controllers; 49 main Java sources + the single context-load test = 50 Java files in total, counted from `src/`) — the 9 controllers expose 46 endpoint mappings (22 GET, 8 POST, 9 PUT, 7 DELETE), counted from `src/main/java/` and re-verified 2026-11-20 |
+| `src/main/java/com/bookbridge/controller/` | REST + WebSocket controllers (9 controllers; 49 main Java sources + the single context-load test = 50 Java files in total, counted from `src/`) — the 9 controllers expose 46 endpoint mappings (22 GET, 8 POST, 9 PUT, 7 DELETE), counted from `src/main/java/` and re-verified 2026-11-24 |
 | `src/main/java/com/bookbridge/config/` | 3 config classes: `SessionConfig` (session-based auth), `WebConfig`, and `WebSocketConfig` (STOMP over SockJS) — counted from `config/` |
 | `src/main/java/com/bookbridge/model/` | JPA entities — 16 classes: 7 entities (`Book`, `Category`, `Chat`, `Message`, `Notification`, `Transaction`, `User`) + 9 enums (`BookCondition`, `BookStatus`, `DeliveryMethod`, `ListingType`, `MessageStatus`, `NotificationType`, `TransactionStatus`, `TransactionType`, `UserRole`), counted from `model/` |
 | `src/main/java/com/bookbridge/repository/` | Spring Data repositories (7, counted from `repository/`) |
